@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your name">
+    <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+    <meta name="description" content="Museum website redesign project">
+    <title>MonoMuse</title>
+
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <script src="../static/script.js" defer></script>
+
+    <script
+    src="https://code.jquery.com/jquery-4.0.0.min.js"
+    integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao="
+    crossorigin="anonymous"></script>
+
+    <!-- increment 5 css for leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <!-- increment 5 js for leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+</head>
+<body onload="addYear()">
+<div class="container">
+
+    <header class="header">
+        <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+    </header>
+
+    <nav class="nav_bar">
+        <a href="../index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="buytickets.html">Buy Tickets</a>
+        <a href="visit.html">Visit</a>
+    </nav>
+
+    <div class="main">
+        <h2>Plan Your Visit</h2>
+        <p>We are located at 5000 Forbes Ave, Pittsburgh, PA 15213, just a short walk from the Carnegie Mellon University campus. Visitors can easily access the museum via public transportation, with several bus lines stopping nearby and parking available in the adjacent lot. We look forward to welcoming you to MonoMuse for an unforgettable experience at the intersection of art and technology.</p>
+        <a class="ticketlink-cta" href="buytickets.html">Buy Tickets</a>
+
+    <div class="mainquad">
+    
+        <div id="item1">
+            <h2>Hours & Admission</h2>
+            <ul id="HoursList">
+                <li>Monday: Closed</li>
+                <li>Tuesday - Friday: 10am - 6pm</li>
+                <li>Saturday: 11am - 7pm</li>
+                <li>Sunday: 12pm - 5pm</li>
+            </ul>
+        </div>
+        <div id="item2">
+            <h2>Know Before You Go</h2>
+            <ul id="KnowList">
+                <li>Fully wheelchair accessible with elevators and accessible restrooms</li>
+                <li>Free Wi-Fi available throughout the museum</li>
+                <li>Coat check and lockers available; large bags may need to be stored</li>
+                <li>Plan 1-2 hours for your visit; check for timed exhibits</li>
+            </ul>
+        </div>
+        <div id="item3">
+            <h2>Virtual Tour</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qM43gnigKgQ?si=bOO1HpixC1_kxZPc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        
+        </div> 
+        <div id="item4">
+            <h2>Getting Here</h2>
+            <!-- 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6072.849553932092!2d-79.94471602398283!3d40.44373445399522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f221fb24dd83%3A0x5eb5d68faba8b4f9!2s5000%20Forbes%20Ave%2C%20Pittsburgh%2C%20PA%2015213!5e0!3m2!1sen!2sus!4v1774194034232!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            -->
+        <div id="map"></div> 
+        </div>
+    </div>
+
+</div>
+    <footer class="footer">
+    <p id="copyYear"></p>
+    </footer>
+</div>
+</body>
+</html>

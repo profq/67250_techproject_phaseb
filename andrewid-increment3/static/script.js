@@ -102,11 +102,11 @@ function greetingFunc() {
 }
 
 // Get the current page URL
-var L = window.location.href;
-console.log(L);  // Log the full URL to the console for debugging
+var currentpage = window.location.href;
+console.log(currentpage);  // Log the full URL to the console for debugging
 
 // Check if the current page is "index.html" before running the greeting function
-if (L.includes("index.html")) {  
+if (currentpage.includes("index.html")) {  
    greetingFunc();  // Call the function to update the greeting
 }
 

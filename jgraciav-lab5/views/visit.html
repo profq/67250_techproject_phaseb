@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- increment 5.1 leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+     <link rel="stylesheet" href="../static/style.css">
+
+     <!-- js for leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="../static/script.js" defer></script>
+  
+
+
+  
+
+     
+
+  <title>Visit</title>
+</head>
+
+<body onload="addYear()">
+
+  <header>
+    <h1 id="webname">MuseumName</h1>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="visit.html">Visit</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="fun.html">Fun</a>
+      <a href="tickets.html" class="cta">Buy Tickets</a>
+    </nav>
+  </header>
+
+  <div class="main">
+    <h2>Plan Your Visit</h2>
+
+    <div class="mainLayout">
+
+      <div class="item1">
+        <h3>Museum Hours</h3>
+        <p>
+          Monday–Friday: 10:00 AM – 6:00 PM<br>
+          Saturday: 11:00 AM – 7:00 PM<br>
+          Sunday: 11:00 AM – 5:00 PM
+        </p>
+
+        <h3>Address</h3>
+        <p>5000 Forbes Ave, Pittsburgh, PA 15213</p>
+
+        <h3>Directions</h3>
+        <p>
+          For public transport, you may take the bus to Forbes Ave and walk 2 blocks to the main entrance.<br>
+          Paid parking is available in nearby garages and street parking may be available.
+        </p>
+
+        <h3>Check Your ZIP Code</h3>
+        <label for="zipInput">ZIP Code:</label>
+        <input type="text" id="zipInput" maxlength="5" placeholder="e.g., 15213">
+        <button type="button" onclick="lookupZip()">Check</button>
+        <p id="zipResult"></p>
+      </div>
+
+      <!-- item2: map -->
+      <!-- <div class="item2">
+        <h3>Find Us</h3>
+        <div class="mapContainer">
+          <iframe
+            src="https://www.google.com/maps?q=5000+Forbes+Ave,+Pittsburgh,+PA+15213&output=embed"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div> -->
+
+      <!-- 5.1 increment -->
+      <div class="item2">
+        <h3>Find Us</h3>
+        <div id="map"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p id="copyYear"></p>
+  </footer>
+
+</body>
+</html>

@@ -118,9 +118,7 @@ function addYear() {
     E.innerHTML="&copy; " + y + " MonoMuse. All rights reserved.";  // Includes the year to the existing content
  } 
 
-  /**
- * Sets the 'active' class on the navigation link that matches the current page URL.
- */
+  /** Sets the 'active' class on the navigation link that matches the current page URL. */
 function ActiveNav() {
     // Get all navigation links
     const navLinks = document.querySelectorAll('nav a');
@@ -139,6 +137,19 @@ function ActiveNav() {
 ActiveNav();
 
 
+// Show the hidden ticket purchase form
+function showForm(date) {
+  // Make the form visible
+  document.getElementById("ticketForm").style.display = "block";
+
+  // Put the selected date into the form
+  document.getElementById("visitDate").value = date;
+}
+
+// Simulate sending the user to checkout
+function submitPurchase() {
+  alert("Your order is received. Redirecting to payment system.");
+}
   // When the "Read Less" button is clicked
  $("#readLess").click(function(){ 
     $("#longIntro").hide(); // Hide the long introduction text
@@ -154,16 +165,36 @@ ActiveNav();
     $("#readMore").hide();   // Hide the "Read More" button  
   });
 
-// Show the hidden ticket purchase form
-function showForm(date) {
-  // Make the form visible
-  document.getElementById("ticketForm").style.display = "block";
 
-  // Put the selected date into the form
-  document.getElementById("visitDate").value = date;
+  // 5.1
+
+function loadLeafletMap() {
+  const mapElement = document.getElementById("map");
+  if (!mapElement) return;
+
+  if (typeof L === "undefined") {
+    console.log("Leaflet did not load.");
+    return;
+  }
+
+  if (mapElement._leaflet_id) return;
+
+  const museumLat = 40.4443;
+  const museumLng = -79.9436;
+
+  const map = L.map("map").setView([museumLat, museumLng], 15);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "&copy; OpenStreetMap contributors"
+  }).addTo(map);
+
+  L.marker([museumLat, museumLng])
+    .addTo(map)
+    .bindPopup("Museum Location")
+    .openPopup();
 }
 
-// Simulate sending the user to checkout
-function submitPurchase() {
-  alert("Your order is received. Redirecting to payment system.");
-}
+document.addEventListener("DOMContentLoaded", function () {
+  loadLeafletMap();
+});
