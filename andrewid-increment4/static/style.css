@@ -28,6 +28,9 @@
 }
 .main {
   grid-area: main; /* Places the main text content into the "main-text" area */
+  display: flex; /* Enables Flexbox layout for the container */
+  flex-wrap: wrap; /* Allows child elements to wrap onto new lines if necessary */
+  flex-direction: row; /* Aligns child elements in a horizontal row */
 }
 .main_img {
    grid-area: main-img; /* Places the image into the "main-img" area */

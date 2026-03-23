@@ -198,3 +198,8 @@ function loadLeafletMap() {
 document.addEventListener("DOMContentLoaded", function () {
   loadLeafletMap();
 });
+
+function toggleMenu() {
+  const nav = document.querySelector(".nav_bar");
+  nav.classList.toggle("responsive");
+}

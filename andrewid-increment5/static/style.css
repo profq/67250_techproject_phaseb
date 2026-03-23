@@ -21,15 +21,25 @@ body {
 }
 
 .header {
-   grid-area: header; /* Places the header element into the "header" area of the grid */
+  grid-area: header; /* Places the header element into the "header" area of the grid */
 }
 .nav_bar {
-   grid-area: nav_bar; /* Places the navigation bar into the "nav-bar" area */
-   display: flex; /* Uses Flexbox for internal layout */
-   justify-content: right;   /* Centers the content horizontally within the navigation bar*/
+  grid-area: nav_bar; /* Places the navigation bar into the "nav-bar" area */
+  display: flex; /* Uses Flexbox for internal layout */
+  justify-content: flex-end;
+  gap: 10px; /* Adds space between navigation links */
+}
+
+/* Hide hamburger by default */
+.nav_bar .icon {
+  display: none;
 }
 .main {
   grid-area: main; /* Places the main text content into the "main-text" area */
+  display: flex; /* Enables Flexbox layout for the container */
+  flex-wrap: wrap; /* Allows child elements to wrap onto new lines if necessary */
+  flex-direction: row; /* Aligns child elements in a horizontal row */
+
 }
 .main_img {
    grid-area: main-img; /* Places the image into the "main-img" area */
@@ -41,6 +51,7 @@ body {
 #logo {
   width: 18%;   /* adjust size */
   display: block;
+  max-width: 100%;
 }
 
 nav a {
@@ -52,7 +63,7 @@ nav a {
   border-radius: 12px;
 }
 
- .active {
+.active {
   color:#92ad70;  
 }
 
@@ -62,8 +73,7 @@ nav a:hover {
 
 .ticketlink-cta {
   padding: 10px 14px;
-  margin: 20px 10; 
-  display: inline-block;
+  margin: 20px 10px; 
   background: #92ad70;
   color: #0b0b0c;
   border-color: #4d5c3b;
@@ -72,7 +82,6 @@ nav a:hover {
   text-decoration: none;
   cursor: pointer;
   }
-
 
 form * {
   margin: auto;
@@ -109,7 +118,6 @@ form * {
   color: #f5f5f5;
   border-radius: 3px;
   width: fit-content;
-
 }
 
 .ticket_tables th,
@@ -176,16 +184,70 @@ button {
   display: block;
   }
 
- .mainquad {
-   display: flex; /* Enables Flexbox layout for the container */
-   flex-wrap: wrap; /* Allows child elements to wrap onto new lines if necessary */
-   flex-direction: row; /* Aligns child elements in a horizontal row */
-}
-
-  #item1, #item2, #item3, #item4, #item5{
-  width: 40vw; /* Sets the width of each item to 40% of the viewport width */
+.content-card {
+  flex: 1 1 300px;
 }
 
 #map {
   height: 350px;
+}
+
+
+/* Mobile layout (screens 768px and smaller) */
+@media only screen and (max-width: 650px) {
+  .container {
+    grid-template-areas:
+      "header"
+      "nav_bar"
+      "main"
+      "main-img"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  #logo {
+    width: 140px;
+  }
+  .main {
+    flex-direction: column; /* Stacks main content vertically on mobile */
+  }
+  iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+/* Hide all navigation links except the hamburger icon on small screens */
+.nav_bar a:not(.icon) {
+  display: none;
+}
+
+/* Show and style the hamburger icon */
+.nav_bar .icon {
+  display: block;
+  margin-left: auto; /* Push icon to the right */
+  cursor: pointer;   /* Show pointer on hover */
+  font-size: 24px;   /* Make icon larger and visible */
+}
+
+/* When menu is toggled, stack items vertically */
+.nav_bar.responsive {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Show all navigation links when menu is expanded */
+.nav_bar.responsive a:not(.icon) {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+/* Keep hamburger icon aligned to the right in expanded view */
+.nav_bar.responsive .icon {
+  display: block;
+  align-self: flex-end;
+}
+
 }
